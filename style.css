@@ -2,8 +2,8 @@
   display: inline-block;
   margin: 0 2px;
   border: solid 1px black;
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
 }
 
 .red {
@@ -20,4 +20,21 @@
 
 .blue {
   background-color: blue;
+}
+
+.pixel {
+  display: inline-block;
+  border: 1px black solid;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+#pixel-board {
+  width: 220px;
+  height: 220px;
+  margin: 0;
+  padding: 0;
 }
