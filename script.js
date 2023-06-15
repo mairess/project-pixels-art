@@ -17,7 +17,7 @@ const creatSquares = (className) => {
 };
 // Add squares of palette colors
 const addColor = (parentElement, child) => parentElement.appendChild(child);
-addColor(colorPalette, creatSquares('color red'));
+addColor(colorPalette, creatSquares('color red selected'));
 addColor(colorPalette, creatSquares('color green'));
 addColor(colorPalette, creatSquares('color yellow'));
 addColor(colorPalette, creatSquares('color blue'));
@@ -25,11 +25,26 @@ addColor(colorPalette, creatSquares('color blue'));
 const pixelBoard = document.createElement('section');
 pixelBoard.id = 'pixel-board';
 parent.appendChild(pixelBoard);
-const lineBreak = document.createElement('br');
 
+// Create the board
 for (let i = 0; i < 5; i += 1) {
   for (let j = 0; j < 5; j += 1) {
     addColor(pixelBoard, creatSquares('pixel'));
   }
-  colorPalette.appendChild(lineBreak);
 }
+// 3 - Crie uma função para selecionar uma cor na paleta de cores
+const red = document.querySelector('.red');
+const green = document.querySelector('.green');
+const yellow = document.querySelector('.yellow');
+const blue = document.querySelector('.blue');
+
+const selectColor = (event) => {
+  const element = document.querySelector('.selected');
+  element.classList.remove('selected');
+  event.target.classList.add('selected');
+};
+
+red.addEventListener('click', selectColor);
+green.addEventListener('click', selectColor);
+yellow.addEventListener('click', selectColor);
+blue.addEventListener('click', selectColor);
