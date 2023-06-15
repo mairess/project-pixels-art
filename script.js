@@ -27,11 +27,10 @@ pixelBoard.id = 'pixel-board';
 parent.appendChild(pixelBoard);
 
 // Create the board
-for (let i = 0; i < 5; i += 1) {
-  for (let j = 0; j < 5; j += 1) {
-    addColor(pixelBoard, creatSquares('pixel'));
-  }
+for (let j = 0; j < 25; j += 1) {
+  addColor(pixelBoard, creatSquares('pixel'));
 }
+
 // 3 - Crie uma função para selecionar uma cor na paleta de cores
 const red = document.querySelector('.red');
 const green = document.querySelector('.green');
