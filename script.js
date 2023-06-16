@@ -26,7 +26,7 @@ pixelBoard.id = 'pixel-board';
 parent.appendChild(pixelBoard);
 
 // 2 - Adicione à página um quadro contendo 25 pixels, sendo que cada elemento do quadro de pixels possua 40 pixels de largura, 40 pixels de altura e seja delimitado por uma borda preta de 1 pixel
-for (let j = 0; j < 25; j += 1) {
+for (let i = 0; i < 25; i += 1) {
   addColor(pixelBoard, creatSquares('pixel'));
 }
 
