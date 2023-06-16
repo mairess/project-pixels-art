@@ -1,11 +1,10 @@
-// O título deverá ficar dentro de uma tag h1 com o id denominado title;
-// O texto do título deve ser exatamente "Paleta de Cores".
+// 1 - Adicione à página o título "Paleta de Cores" e uma paleta contendo quatro cores distintas
 const title = document.createElement('h1');
 const parent = document.querySelector('body');
 title.id = 'title';
 title.innerText = 'Paleta de Cores';
 parent.appendChild(title);
-// A paleta de cores deve ser um elemento com id denominado color-palette, e cada cor individual contida na paleta de cores deve possuir a classe chamada color;
+
 const colorPalette = document.createElement('ul');
 colorPalette.id = 'color-palette';
 parent.appendChild(colorPalette);
@@ -15,7 +14,7 @@ const creatSquares = (classNameToPass) => {
   newSquare.className = classNameToPass;
   return newSquare;
 };
-// Add squares of palette colors
+
 const addColor = (parentElement, child) => parentElement.appendChild(child);
 addColor(colorPalette, creatSquares('color red selected'));
 addColor(colorPalette, creatSquares('color green'));
