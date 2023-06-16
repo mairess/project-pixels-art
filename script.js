@@ -10,9 +10,9 @@ const colorPalette = document.createElement('ul');
 colorPalette.id = 'color-palette';
 parent.appendChild(colorPalette);
 //  Create colors
-const creatSquares = (className) => {
+const creatSquares = (classNameToPass) => {
   const newSquare = document.createElement('li');
-  newSquare.className = className;
+  newSquare.className = classNameToPass;
   return newSquare;
 };
 // Add squares of palette colors
@@ -72,3 +72,28 @@ const reset = () => {
 };
 
 resetButton.addEventListener('click', reset);
+
+// 6 - Adicione um botão para gerar cores aleatórias para a paleta de cores
+const randomColorButton = document.createElement('button');
+randomColorButton.id = 'button-random-color';
+randomColorButton.innerText = 'Cores aleatórias';
+resetButton.insertAdjacentElement('afterend', randomColorButton);
+
+const generateRandomColor = () => {
+  const hexadecimals = 'ABCDEF0123456789';
+  let color = '#';
+
+  for (let i = 0; i < 3; i += 1) {
+    color += hexadecimals[Math.ceil(Math.random() * 16)];
+  }
+  return color;
+};
+
+const SetRandomColor = () => {
+  const colors = document.getElementsByClassName('color');
+  for (let i = 0; i < colors.length; i += 1) {
+    colors[i].style.backgroundColor = generateRandomColor();
+  }
+};
+
+randomColorButton.addEventListener('click', SetRandomColor);
