@@ -54,6 +54,21 @@ for (let index = 0; index < elements.length; index += 1) {
   elements[index].addEventListener('click', (event) => {
     const selected = document.querySelector('.selected');
     const computedStyle = getComputedStyle(selected);
-    event.target.style.backgroundColor = computedStyle.getPropertyValue('background-color');
+    const evento = event;
+    evento.target.style.backgroundColor = computedStyle.getPropertyValue('background-color');
   });
 }
+
+// 5 - Crie um botão que, ao ser clicado, limpa o quadro preenchendo a cor de todos seus pixels com branco
+const resetButton = document.createElement('button');
+resetButton.id = 'clear-board';
+resetButton.innerText = 'Limpar';
+colorPalette.insertAdjacentElement('afterend', resetButton);
+
+const reset = () => {
+  for (let index = 0; index < elements.length; index += 1) {
+    elements[index].style.backgroundColor = 'white';
+  }
+};
+
+resetButton.addEventListener('click', reset);
