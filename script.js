@@ -47,3 +47,13 @@ red.addEventListener('click', selectColor);
 green.addEventListener('click', selectColor);
 yellow.addEventListener('click', selectColor);
 blue.addEventListener('click', selectColor);
+
+// 4 - Crie uma função que permita preencher um pixel do quadro com a cor selecionada na paleta de cores
+const elements = document.querySelectorAll('.pixel');
+for (let index = 0; index < elements.length; index += 1) {
+  elements[index].addEventListener('click', (event) => {
+    const selected = document.querySelector('.selected');
+    const computedStyle = getComputedStyle(selected);
+    event.target.style.backgroundColor = computedStyle.getPropertyValue('background-color');
+  });
+}
