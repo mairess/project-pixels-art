@@ -82,7 +82,7 @@ const generateRandomColor = () => {
   const hexadecimals = 'ABCDEF0123456789';
   let color = '#';
 
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < 6; i += 1) {
     color += hexadecimals[Math.ceil(Math.random() * 16)];
   }
   return color;
