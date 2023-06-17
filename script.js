@@ -26,8 +26,19 @@ pixelBoardSection.id = 'pixel-board';
 parent.appendChild(pixelBoardSection);
 
 // 2 - Adicione à página um quadro contendo 25 pixels, sendo que cada elemento do quadro de pixels possua 40 pixels de largura, 40 pixels de altura e seja delimitado por uma borda preta de 1 pixel
-for (let i = 0; i < 25; i += 1) {
-  addColor(pixelBoardSection, creatSquares('pixel'));
+const pixelsBoard = document.getElementById('pixel-board');
+const size = 5;
+for (let i = 0; i < size; i += 1) {
+  const row = document.createElement('div');
+  row.className = 'row';
+
+  for (let j = 0; j < size; j += 1) {
+    const square = creatSquares('pixel');
+    square.className = 'pixel';
+    row.appendChild(square);
+  }
+
+  pixelsBoard.appendChild(row);
 }
 
 // 3 - Crie uma função para selecionar uma cor na paleta de cores

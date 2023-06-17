@@ -32,12 +32,12 @@
   background-color: white;
 }
 
-#pixel-board {
+/* #pixel-board {
   width: 220px;
   height: 220px;
   margin: 0;
   padding: 0;
-}
+} */
 
 #clear-board {
   margin: 15px;
