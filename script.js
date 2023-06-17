@@ -28,7 +28,7 @@ parent.appendChild(pixelBoardSection);
 // 2 - Adicione à página um quadro contendo 25 pixels, sendo que cada elemento do quadro de pixels possua 40 pixels de largura, 40 pixels de altura e seja delimitado por uma borda preta de 1 pixel
 const pixelsBoard = document.getElementById('pixel-board');
 const size = 5;
-for (let i = 0; i < size; i += 1) {
+for (let index = 0; index < size; index += 1) {
   const row = document.createElement('div');
   row.className = 'row';
 
@@ -108,7 +108,7 @@ const generateRandomColor = () => {
   const hexadecimals = 'ABCDEF0123456789';
   let color = '#';
 
-  for (let i = 0; i < 6; i += 1) {
+  for (let index = 0; index < 6; index += 1) {
     color += hexadecimals[Math.ceil(Math.random() * 16)];
   }
   return color;
@@ -116,8 +116,8 @@ const generateRandomColor = () => {
 
 const SetRandomColor = () => {
   const colors = document.getElementsByClassName('color');
-  for (let i = 0; i < colors.length; i += 1) {
-    colors[i].style.backgroundColor = generateRandomColor();
+  for (let index = 0; index < colors.length; index += 1) {
+    colors[index].style.backgroundColor = generateRandomColor();
   }
 };
 
