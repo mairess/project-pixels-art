@@ -48,6 +48,7 @@ yellow.addEventListener('click', selectColor);
 blue.addEventListener('click', selectColor);
 
 // 4 - Crie uma função que permita preencher um pixel do quadro com a cor selecionada na paleta de cores
+const pixelBoardarray = [];
 const elements = document.querySelectorAll('.pixel');
 for (let index = 0; index < elements.length; index += 1) {
   elements[index].addEventListener('click', (event) => {
@@ -56,15 +57,19 @@ for (let index = 0; index < elements.length; index += 1) {
     const backgroundColor = computedStyle.getPropertyValue('background-color');
     const evento = event;
     evento.target.style.backgroundColor = backgroundColor;
-
-    localStorage.setItem(`pixelBoard${index}`, backgroundColor);
+    pixelBoardarray[index] = backgroundColor;
+    localStorage.setItem('pixelBoard', JSON.stringify(pixelBoardarray));
   });
 }
 
-for (let index = 0; index < elements.length; index += 1) {
-  const storedBackgroundColor = localStorage.getItem(`pixelBoard${index}`);
-  if (storedBackgroundColor) {
-    elements[index].style.backgroundColor = storedBackgroundColor;
+const storedBackgroundColor = localStorage.getItem('pixelBoard');
+const parsedBackgroundColor = JSON.parse(storedBackgroundColor);
+if (storedBackgroundColor) {
+  for (let index = 0; index < elements.length; index += 1) {
+    const storedColor = parsedBackgroundColor[index];
+    if (storedColor) {
+      elements[index].style.backgroundColor = storedColor;
+    }
   }
 }
 
