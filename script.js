@@ -1,4 +1,4 @@
-// 1 - Adicione à página o título "Paleta de Cores" e uma paleta contendo quatro cores distintas
+// 1 - Adicione à página o título "Paleta de Cores" e uma paleta contendo quatro cores distintas.
 const title = document.createElement('h1');
 const parent = document.querySelector('body');
 title.id = 'title';
@@ -8,7 +8,7 @@ parent.appendChild(title);
 const colorPalette = document.createElement('ul');
 colorPalette.id = 'color-palette';
 parent.appendChild(colorPalette);
-//  Create colors
+
 const creatSquares = (classNameToPass) => {
   const newSquare = document.createElement('li');
   newSquare.className = classNameToPass;
@@ -20,7 +20,7 @@ addColor(colorPalette, creatSquares('color red selected'));
 addColor(colorPalette, creatSquares('color green'));
 addColor(colorPalette, creatSquares('color yellow'));
 addColor(colorPalette, creatSquares('color blue'));
-// Create pixels board
+
 const pixelBoardSection = document.createElement('section');
 pixelBoardSection.id = 'pixel-board';
 parent.appendChild(pixelBoardSection);
