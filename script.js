@@ -21,13 +21,13 @@ addColor(colorPalette, creatSquares('color green'));
 addColor(colorPalette, creatSquares('color yellow'));
 addColor(colorPalette, creatSquares('color blue'));
 // Create pixels board
-const pixelBoard = document.createElement('section');
-pixelBoard.id = 'pixel-board';
-parent.appendChild(pixelBoard);
+const pixelBoardSection = document.createElement('section');
+pixelBoardSection.id = 'pixel-board';
+parent.appendChild(pixelBoardSection);
 
 // 2 - Adicione à página um quadro contendo 25 pixels, sendo que cada elemento do quadro de pixels possua 40 pixels de largura, 40 pixels de altura e seja delimitado por uma borda preta de 1 pixel
 for (let i = 0; i < 25; i += 1) {
-  addColor(pixelBoard, creatSquares('pixel'));
+  addColor(pixelBoardSection, creatSquares('pixel'));
 }
 
 // 3 - Crie uma função para selecionar uma cor na paleta de cores
@@ -53,9 +53,19 @@ for (let index = 0; index < elements.length; index += 1) {
   elements[index].addEventListener('click', (event) => {
     const selected = document.querySelector('.selected');
     const computedStyle = getComputedStyle(selected);
+    const backgroundColor = computedStyle.getPropertyValue('background-color');
     const evento = event;
-    evento.target.style.backgroundColor = computedStyle.getPropertyValue('background-color');
+    evento.target.style.backgroundColor = backgroundColor;
+
+    localStorage.setItem(`pixelBoard${index}`, backgroundColor);
   });
+}
+
+for (let index = 0; index < elements.length; index += 1) {
+  const storedBackgroundColor = localStorage.getItem(`pixelBoard${index}`);
+  if (storedBackgroundColor) {
+    elements[index].style.backgroundColor = storedBackgroundColor;
+  }
 }
 
 // 5 - Crie um botão que, ao ser clicado, limpa o quadro preenchendo a cor de todos seus pixels com branco
