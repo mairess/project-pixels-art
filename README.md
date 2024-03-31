@@ -6,9 +6,7 @@ Esse projeto é um editor de Arte com Pixels feito em javascript! Nele o usuári
 
 ## Rode o projeto localmente
 
-```JSON
-Basta abir o index.html no navegador.
-```
+- Basta abir o `index.html` no navegador.
 
 ## Competências desenvolvidas
 
